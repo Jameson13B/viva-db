@@ -12,6 +12,7 @@ export const DaySelect = props => {
       size="lg"
       value={day}
     >
+      <option value="Week">Full Week</option>
       <option value="Monday">Monday</option>
       <option value="Tuesday">Tuesday</option>
       <option value="Wednesday">Wednesday</option>
