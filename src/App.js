@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Box, Flex, Icon, Heading } from '@chakra-ui/core'
+import { DaySelect } from './components/DaySelect'
+import { CustomTabs } from './components/CustomTabs'
+import { getTodaysDay } from './utils'
 
 function App() {
+  const [day, setDay] = useState(getTodaysDay())
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Header Content */}
+      <Flex alignItems="center" d="flex" pl="15px" pt="5px">
+        <Icon mr="10px" name="sun" size="48px" color="yellow.400" />
+        <Heading d="inline" lineHeight="100%" size="2xl">
+          Viva
+        </Heading>
+        <Heading d="inline" size="2xl">
+          DB
+        </Heading>
+      </Flex>
+      {/* Day Selector */}
+      <Box px="10px" py="10px">
+        <DaySelect setDay={setDay} day={day} />
+      </Box>
+      {/* Tab Content */}
+      <CustomTabs />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
