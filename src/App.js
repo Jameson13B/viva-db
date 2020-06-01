@@ -24,7 +24,7 @@ function App() {
         <DaySelect setDay={setDay} day={day} />
       </Box>
       {/* Tab Content */}
-      <CustomTabs day={day} />
+      <CustomTabs setDay={setDay} day={day} />
     </div>
   )
 }

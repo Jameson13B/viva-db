@@ -6,7 +6,7 @@ import { RechargeBox } from './recharge/RechargeBox'
 import { VibeBox } from './vibe/VibeBox'
 
 export const CustomTabs = props => {
-  const { day } = props
+  const { day, setDay } = props
   const colors = ['red.200', 'teal.200', 'blue.200', 'green.200']
   const [tabIndex, setTabIndex] = React.useState(0)
   const bg = colors[tabIndex]
@@ -28,7 +28,7 @@ export const CustomTabs = props => {
 
       <TabPanels bg={bg} pl="5px" rounded="3px">
         <TabPanel>
-          <MoveBox day={day} />
+          <MoveBox setDay={setDay} day={day} />
         </TabPanel>
         <TabPanel>
           <EatBox />
