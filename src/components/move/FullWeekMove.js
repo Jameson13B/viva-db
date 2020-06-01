@@ -1,23 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Box, Checkbox, Divider, Stack, Text } from '@chakra-ui/core'
+import { database as db } from '../../firebase'
 
-export const FullWeekMove = () => {
-  const [tempData, setTempData] = useState({
-    sprint: false,
-    movement1: false,
-    movement2: false,
-    movement3: false,
-    cardio1: false,
-    cardio2: false,
-    cardio3: false,
-    cardio4: false,
-    cardio5: false,
-  })
-  const onChange = e =>
-    setTempData({
-      ...tempData,
+export const FullWeekMove = props => {
+  const { weekData } = props
+  const handleCheckboxClick = e => {
+    const newItem = {
+      ...weekData,
       [e.target.name]: e.target.checked,
-    })
+    }
+
+    delete newItem.id
+    db.collection('week').doc('move').update(newItem)
+  }
 
   return (
     <Box>
@@ -27,10 +22,10 @@ export const FullWeekMove = () => {
         rest.
       </Text>
       <Checkbox
-        isChecked={tempData.sprint}
+        isChecked={weekData.sprint}
         name="sprint"
         ml="15px"
-        onChange={onChange}
+        onChange={handleCheckboxClick}
         variantColor="cyan"
       >
         Sprint
@@ -43,28 +38,28 @@ export const FullWeekMove = () => {
       </Text>
       <Stack spacing="15px">
         <Checkbox
-          isChecked={tempData.movement1}
+          isChecked={weekData.movement1}
           name="movement1"
           ml="15px"
-          onChange={onChange}
+          onChange={handleCheckboxClick}
           variantColor="cyan"
         >
           Movements 1
         </Checkbox>
         <Checkbox
-          isChecked={tempData.movement2}
+          isChecked={weekData.movement2}
           name="movement2"
           ml="15px"
-          onChange={onChange}
+          onChange={handleCheckboxClick}
           variantColor="cyan"
         >
           Movements 2
         </Checkbox>
         <Checkbox
-          isChecked={tempData.movement3}
+          isChecked={weekData.movement3}
           name="movement3"
           ml="15px"
-          onChange={onChange}
+          onChange={handleCheckboxClick}
           variantColor="cyan"
         >
           Movements 3
@@ -77,46 +72,46 @@ export const FullWeekMove = () => {
       </Text>
       <Stack spacing="15px">
         <Checkbox
-          isChecked={tempData.cardio1}
+          isChecked={weekData.cardio1}
           name="cardio1"
           ml="15px"
-          onChange={onChange}
+          onChange={handleCheckboxClick}
           variantColor="cyan"
         >
           Slow Cardio 1
         </Checkbox>
         <Checkbox
-          isChecked={tempData.cardio2}
+          isChecked={weekData.cardio2}
           name="cardio2"
           ml="15px"
-          onChange={onChange}
+          onChange={handleCheckboxClick}
           variantColor="cyan"
         >
           Slow Cardio 2
         </Checkbox>
         <Checkbox
-          isChecked={tempData.cardio3}
+          isChecked={weekData.cardio3}
           name="cardio3"
           ml="15px"
-          onChange={onChange}
+          onChange={handleCheckboxClick}
           variantColor="cyan"
         >
           Slow Cardio 3
         </Checkbox>
         <Checkbox
-          isChecked={tempData.cardio4}
+          isChecked={weekData.cardio4}
           name="cardio4"
           ml="15px"
-          onChange={onChange}
+          onChange={handleCheckboxClick}
           variantColor="cyan"
         >
           Slow Cardio 4
         </Checkbox>
         <Checkbox
-          isChecked={tempData.cardio5}
+          isChecked={weekData.cardio5}
           name="cardio5"
           ml="15px"
-          onChange={onChange}
+          onChange={handleCheckboxClick}
           variantColor="cyan"
         >
           Slow Cardio 5
