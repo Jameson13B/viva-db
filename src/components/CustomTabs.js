@@ -7,7 +7,7 @@ import { VibeBox } from './vibe/VibeBox'
 
 export const CustomTabs = props => {
   const { day, setDay } = props
-  const colors = ['red.200', 'teal.200', 'blue.200', 'green.200']
+  const colors = ['red.200', 'blue.200', 'orange.200', 'green.200']
   const [tabIndex, setTabIndex] = React.useState(0)
   const bg = colors[tabIndex]
 
