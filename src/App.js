@@ -8,7 +8,7 @@ function App() {
   const [day, setDay] = useState(getTodaysDay())
 
   return (
-    <div className="App">
+    <Box>
       {/* Header Content */}
       <Flex alignItems="center" d="flex" pl="15px" pt="5px">
         <Icon mr="10px" name="sun" size="48px" color="yellow.400" />
@@ -25,7 +25,7 @@ function App() {
       </Box>
       {/* Tab Content */}
       <CustomTabs setDay={setDay} day={day} />
-    </div>
+    </Box>
   )
 }
 

@@ -9,8 +9,8 @@ export const MoveBox = props => {
   const [weekData, setWeekData] = useState({})
 
   useEffect(() => {
-    db.collection('week')
-      .doc('move')
+    db.collection('move')
+      .doc('week')
       .onSnapshot(doc => setWeekData({ ...doc.data(), id: doc.id }))
   }, [])
 

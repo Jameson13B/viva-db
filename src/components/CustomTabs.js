@@ -31,7 +31,7 @@ export const CustomTabs = props => {
           <MoveBox setDay={setDay} day={day} />
         </TabPanel>
         <TabPanel>
-          <EatBox />
+          <EatBox setDay={setDay} day={day} />
         </TabPanel>
         <TabPanel>
           <RechargeBox />

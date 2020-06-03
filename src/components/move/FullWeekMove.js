@@ -11,7 +11,7 @@ export const FullWeekMove = props => {
     }
 
     delete newItem.id
-    db.collection('week').doc('move').update(newItem)
+    db.collection('move').doc('week').update(newItem)
   }
 
   return (
