@@ -11,51 +11,51 @@ export const FullWeekEat = props => {
       </Heading>
       <Divider />
       <Flex justify="center" wrap="wrap">
-        <Stat flex="0 auto" my="10px" onClick={() => setDay('Monday')} width="45%">
+        <Stat flex="0 auto" my="10px" onClick={() => setDay('Monday')} width="48%">
           <StatLabel mb="5px">Monday</StatLabel>
-          <StatNumber>
+          <StatNumber fontSize="xl">
             {daysData['mondayData'].carbs} Carbs
             {genIcon(daysData['mondayData'].carbs)}
           </StatNumber>
         </Stat>
-        <Stat flex="0 auto" my="10px" onClick={() => setDay('Tuesday')} width="45%">
+        <Stat flex="0 auto" my="10px" onClick={() => setDay('Tuesday')} width="48%">
           <StatLabel mb="5px">Tuesday</StatLabel>
-          <StatNumber>
+          <StatNumber fontSize="xl">
             {daysData['tuesdayData'].carbs} Carbs
             {genIcon(daysData['tuesdayData'].carbs)}
           </StatNumber>
         </Stat>
-        <Stat flex="0 auto" my="10px" onClick={() => setDay('Wednesday')} width="45%">
+        <Stat flex="0 auto" my="10px" onClick={() => setDay('Wednesday')} width="48%">
           <StatLabel mb="5px">Wednesday</StatLabel>
-          <StatNumber>
+          <StatNumber fontSize="xl">
             {daysData['wednesdayData'].carbs} Carbs
             {genIcon(daysData['wednesdayData'].carbs)}
           </StatNumber>
         </Stat>
-        <Stat flex="0 auto" my="10px" onClick={() => setDay('Thursday')} width="45%">
+        <Stat flex="0 auto" my="10px" onClick={() => setDay('Thursday')} width="48%">
           <StatLabel mb="5px">Thursday</StatLabel>
-          <StatNumber>
+          <StatNumber fontSize="xl">
             {daysData['thursdayData'].carbs} Carbs
             {genIcon(daysData['thursdayData'].carbs)}
           </StatNumber>
         </Stat>
-        <Stat flex="0 auto" my="10px" onClick={() => setDay('Friday')} width="45%">
+        <Stat flex="0 auto" my="10px" onClick={() => setDay('Friday')} width="48%">
           <StatLabel mb="5px">Friday</StatLabel>
-          <StatNumber>
+          <StatNumber fontSize="xl">
             {daysData['fridayData'].carbs} Carbs
             {genIcon(daysData['fridayData'].carbs)}
           </StatNumber>
         </Stat>
-        <Stat flex="0 auto" my="10px" onClick={() => setDay('Saturday')} width="45%">
+        <Stat flex="0 auto" my="10px" onClick={() => setDay('Saturday')} width="48%">
           <StatLabel mb="5px">Saturday</StatLabel>
-          <StatNumber>
+          <StatNumber fontSize="xl">
             {daysData['saturdayData'].carbs} Carbs
             {genIcon(daysData['saturdayData'].carbs)}
           </StatNumber>
         </Stat>
-        <Stat flex="0 auto" my="10px" onClick={() => setDay('Sunday')} width="45%">
+        <Stat flex="0 auto" my="10px" onClick={() => setDay('Sunday')} width="48%">
           <StatLabel mb="5px">Sunday</StatLabel>
-          <StatNumber>
+          <StatNumber fontSize="xl">
             {daysData['sundayData'].carbs} Carbs
             {genIcon(daysData['sundayData'].carbs)}
           </StatNumber>
