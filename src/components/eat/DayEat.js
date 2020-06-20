@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Divider,
@@ -6,46 +6,54 @@ import {
   List,
   ListItem,
   ListIcon,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
   Text,
 } from '@chakra-ui/core'
 import { database as db } from '../../firebase'
 import _debounce from 'lodash/debounce'
 
 export const DayEat = props => {
-  const { day, dayData, setDayData } = props
+  const { day, dayData } = props
+  const [carbs, setCarbs] = useState(0)
 
-  const handleSlideChange = _debounce(value => {
-    db.collection('eat').doc(day.toLowerCase()).update({ carbs: value })
-  }, 500)
+  useEffect(() => {
+    setCarbs(dayData.carbs)
+  }, [dayData.carbs])
+
+  const handleSlideChange = _debounce(
+    value => db.collection('eat').doc(day.toLowerCase()).update({ carbs: value }),
+    100,
+  )
 
   return (
     <Box>
       <Heading d="inline">{day} Eat</Heading>
-      <Text pb="15px" pt="5px">
-        Limit processed carb intake to 50-100 grams per day.
-      </Text>
-      <Heading size="xl" textAlign="center">
-        {dayData.carbs} carbs
+      <Text pt="5px">Limit processed carb intake to 50-100 grams per day.</Text>
+      <Heading pb="5px" size="lg" textAlign="center">
+        Todays carbs:
       </Heading>
-      <Slider
-        color={dayData.carbs > 75 ? 'red' : 'green'}
-        defaultValue={0}
-        max="100"
+      <NumberInput
+        min={0}
+        max={200}
+        maxW={150}
+        mx="auto"
         onChange={val => {
-          setDayData({ carbs: val })
+          setCarbs(val)
           handleSlideChange(val)
         }}
-        step="1"
-        value={dayData.carbs}
+        size="lg"
+        value={carbs}
       >
-        <SliderTrack />
-        <SliderFilledTrack />
-        <SliderThumb />
-      </Slider>
+        <NumberInputField type="number" />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </NumberInput>
       <Divider />
       <Heading mb="10px" size="lr">
         Bad:
@@ -82,7 +90,7 @@ export const DayEat = props => {
         </ListItem>
       </List>
       <Divider />
-      <Heading mb="10px" size="xl" textAlign="center">
+      <Heading mb="10px" textAlign="center">
         Focus on plant based eating!
       </Heading>
     </Box>
